@@ -10,3 +10,14 @@ number of times a word appears in a review and is offset by the number of review
 contain the word. This method is used because we want to identify unique/representative words for positive reviews and 
 negative reviews. More information about fit vs transform: 
 https://datascience.stackexchange.com/questions/12321/whats-the-difference-between-fit-and-fit-transform-in-scikit-learn-models
+
+#### Supervised learning
+Models are trained using labeled data (data that has already sentiment information).
+Two common types of supervised learning are **Regression** used to predict continuous values such as price, salary, age 
+and **Classification** used to predict discrete values such as male/female, spam/not spam, positive/negative.
+
+#### Classification methods
+##### Support Vector Machine
+The objective of the support vector machine algorithm is to find a hyperplane in an N-dimensional space that distinctly 
+separates the two classes of data points.
+

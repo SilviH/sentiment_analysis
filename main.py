@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.svm import SVC
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -36,10 +37,14 @@ print(
     'words (whole vocabulary used in the reviews).'
 )
 
-# TF-IDF
-# Display of the matrix
-print(pd.DataFrame.sparse.from_spmatrix(train_x_vector, index=train_x.index, columns=tfidf.get_feature_names_out()))
-
-# TF-IDF
 # Transformation of test (we don’t need to fit tfidf again)
 test_x_vector = tfidf.transform(test_x)
+
+# Classification algorithms - Support Vector Machines (SVM)
+svc = SVC(kernel='linear')
+svc.fit(train_x_vector, train_y)
+
+print(svc.predict(tfidf.transform(['A good movie'])))
+print(svc.predict(tfidf.transform(['An excellent movie'])))
+print(svc.predict(tfidf.transform(['I did not like this movie at all'])))
+print(svc.predict(tfidf.transform(['Bad intention but good execution'])))
