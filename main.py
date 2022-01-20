@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -59,3 +60,7 @@ svc = SVC(kernel='linear')
 svc.fit(train_x_vector, train_y)
 test_method(svc)
 
+# Classification algorithms - Decision Tree
+dec_tree = DecisionTreeClassifier()
+dec_tree.fit(train_x_vector, train_y)
+test_method(dec_tree)
