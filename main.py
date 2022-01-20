@@ -40,11 +40,22 @@ print(
 # Transformation of test (we don’t need to fit tfidf again)
 test_x_vector = tfidf.transform(test_x)
 
+# Classification algorithms
+test_reviews = [
+    'A good movie',
+    'An excellent movie',
+    'I did not like this movie at all',
+    'Bad intention but good execution'
+]
+
+
+def test_method(classification_method):
+    for n in test_reviews:
+        print(classification_method.predict(tfidf.transform([n])))
+
+
 # Classification algorithms - Support Vector Machines (SVM)
 svc = SVC(kernel='linear')
 svc.fit(train_x_vector, train_y)
+test_method(svc)
 
-print(svc.predict(tfidf.transform(['A good movie'])))
-print(svc.predict(tfidf.transform(['An excellent movie'])))
-print(svc.predict(tfidf.transform(['I did not like this movie at all'])))
-print(svc.predict(tfidf.transform(['Bad intention but good execution'])))
