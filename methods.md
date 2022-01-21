@@ -8,14 +8,12 @@ The CountVectorizer gives us the frequency of occurrence of words in each review
 TF-IDF computes “weights” that represent how important a word is. The TF-IDF value increases proportionally to the 
 number of times a word appears in a review and is offset by the number of reviews in the whole dataset (corpus) that 
 contain the word. This method is used because we want to identify unique/representative words for positive reviews and 
-negative reviews. More information about fit vs transform: 
+negative reviews. ALL THE MODELING IS BASED ON THE FREQUENCY/UNIQUENESS OF WORDS! More information about fit vs transform: 
 https://datascience.stackexchange.com/questions/12321/whats-the-difference-between-fit-and-fit-transform-in-scikit-learn-models
-
 #### Supervised learning
 Models are trained using labeled data (data that has already sentiment information).
 Two common types of supervised learning are **Regression** used to predict continuous values such as price, salary, age 
 and **Classification** used to predict discrete values such as male/female, spam/not spam, positive/negative.
-
 #### Classification methods
 ##### Support Vector Machine
 The objective of the support vector machine algorithm is to find a hyperplane in an N-dimensional space that distinctly 
@@ -28,3 +26,8 @@ to assign a class to all data points in each leaf node. Most times, you end up w
 data points have to the same class (contains both positive and negative reviews).
 In the end, the algorithm can only assign one class to the data points in each leaf node. Future data point will be 
 classified based on in which leaf node it falls into.
+##### Naive Bayes
+It assumes that the presence of a particular feature is unrelated to the 
+presence of any other feature. For example, a fruit may be considered to be an apple if it is red, round, and about 3 
+inches in diameter. All of these properties independently contribute to the probability that this fruit is an apple. 
+So it does not consider the vectors of a review (words) together but how they contribute to certain sentiment separately.

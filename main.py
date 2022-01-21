@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.naive_bayes import GaussianNB
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -48,11 +49,16 @@ test_reviews = [
     'I did not like this movie at all',
     'Bad intention but good execution'
 ]
+gnb = None
 
 
 def test_method(classification_method):
     for n in test_reviews:
-        print(classification_method.predict(tfidf.transform([n])))
+        if classification_method == gnb:
+            print(classification_method.predict((tfidf.transform([n])).toarray()))
+        else:
+            print(classification_method.predict(tfidf.transform([n])))
+    print()
 
 
 # Classification algorithms - Support Vector Machines (SVM)
@@ -64,3 +70,8 @@ test_method(svc)
 dec_tree = DecisionTreeClassifier()
 dec_tree.fit(train_x_vector, train_y)
 test_method(dec_tree)
+
+# Classification algorithms - Naive Bayes
+gnb = GaussianNB()
+gnb.fit(train_x_vector.toarray(), train_y)
+test_method(gnb)
