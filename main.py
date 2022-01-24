@@ -4,6 +4,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
+from sklearn.linear_model import LogisticRegression
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -75,3 +76,8 @@ test_method(dec_tree)
 gnb = GaussianNB()
 gnb.fit(train_x_vector.toarray(), train_y)
 test_method(gnb)
+
+# Classification algorithms - Logistic Regression
+log_reg = LogisticRegression()
+log_reg.fit(train_x_vector, train_y)
+test_method(log_reg)

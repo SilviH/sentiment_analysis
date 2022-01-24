@@ -31,3 +31,8 @@ It assumes that the presence of a particular feature is unrelated to the
 presence of any other feature. For example, a fruit may be considered to be an apple if it is red, round, and about 3 
 inches in diameter. All of these properties independently contribute to the probability that this fruit is an apple. 
 So it does not consider the vectors of a review (words) together but how they contribute to certain sentiment separately.
+##### Logistic Regression
+The model builds a regression model to predict the probability that a given data entry belongs to the category 
+numbered as “1”. Just like Linear regression assumes that the data follows a linear function, 
+Logistic regression models the data using the sigmoid function.
+Logistic regression becomes a classification technique only when a decision threshold is brought into the picture. 
