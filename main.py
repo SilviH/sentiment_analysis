@@ -81,3 +81,10 @@ test_method(gnb)
 log_reg = LogisticRegression()
 log_reg.fit(train_x_vector, train_y)
 test_method(log_reg)
+
+# Model Evaluation
+# Mean Accuracy
+print('SVM mean accuracy:', svc.score(test_x_vector, test_y))
+print('Decision Tree mean accuracy:', dec_tree.score(test_x_vector, test_y))
+print('Naive Bayes mean accuracy:', gnb.score(test_x_vector.toarray(), test_y))
+print('Logistic Regression mean accuracy:', log_reg.score(test_x_vector, test_y))
