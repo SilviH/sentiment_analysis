@@ -36,3 +36,19 @@ The model builds a regression model to predict the probability that a given data
 numbered as “1”. Just like Linear regression assumes that the data follows a linear function, 
 Logistic regression models the data using the sigmoid function.
 Logistic regression becomes a classification technique only when a decision threshold is brought into the picture. 
+
+#### Model Evaluation
+##### Mean Accuracy
+Used when the True Positives and True negatives are more important.
+##### F1 Score
+F1 Score is the weighted average of Precision and Recall. 
+
+`F1 Score = 2*(Recall * Precision) / (Recall + Precision)`
+
+F1 score reaches its best value at 1 and worst score at 0.Recall literally is how many of the true positives were 
+recalled (found), i.e. how many of the correct hits were also found. Precision (your formula is incorrect) is how many 
+of the returned hits were true positive i.e. how many of the found were correct hits.
+Used when the False Negatives and False Positives are crucial.
+F1 takes into account how the data is distributed, so it’s useful when you have data with imbalance classes (e.g. less
+positive than negative reviews in train data or the opposite).
+

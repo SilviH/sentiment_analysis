@@ -5,6 +5,7 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import f1_score
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -83,8 +84,15 @@ log_reg.fit(train_x_vector, train_y)
 test_method(log_reg)
 
 # Model Evaluation
-# Mean Accuracy
+# Mean Accuracy - used when the True Positives and True negatives are more important.
 print('SVM mean accuracy:', svc.score(test_x_vector, test_y))
 print('Decision Tree mean accuracy:', dec_tree.score(test_x_vector, test_y))
 print('Naive Bayes mean accuracy:', gnb.score(test_x_vector.toarray(), test_y))
 print('Logistic Regression mean accuracy:', log_reg.score(test_x_vector, test_y))
+
+# F1 Score (SVM only)
+print(
+    'The scores obtained for positive and negative labels are:',
+    f1_score(test_y, svc.predict(test_x_vector), labels=['positive', 'negative'], average=None)
+)
+
