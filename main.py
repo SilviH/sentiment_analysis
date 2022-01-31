@@ -6,6 +6,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
+from sklearn.metrics import classification_report
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -96,3 +97,5 @@ print(
     f1_score(test_y, svc.predict(test_x_vector), labels=['positive', 'negative'], average=None)
 )
 
+# Classification report (calculates both accuracy and F1-score and also others)
+print(classification_report(test_y, svc.predict(test_x_vector), labels=['positive', 'negative']))
