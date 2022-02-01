@@ -7,6 +7,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -99,3 +100,7 @@ print(
 
 # Classification report (calculates both accuracy and F1-score and also others)
 print(classification_report(test_y, svc.predict(test_x_vector), labels=['positive', 'negative']))
+
+# Confusion Matrix - table that reports the number of false positives, negatives and true positives, negatives
+print(confusion_matrix(test_y,  svc.predict(test_x_vector),  labels=['positive', 'negative']))
+

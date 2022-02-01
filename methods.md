@@ -52,3 +52,11 @@ Used when the False Negatives and False Positives are crucial.
 F1 takes into account how the data is distributed, so it’s useful when you have data with imbalance classes (e.g. less
 positive than negative reviews in train data or the opposite).
 
+##### Confusion Matrix 
+Table that reports the number of false positives, negatives and true positives, negatives.
+
+|   |   |
+---|---
+TP | FP |
+FN | TN |
+
