@@ -8,6 +8,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import GridSearchCV
 
 review = pd.read_csv('IMDB Dataset.csv')
 
@@ -102,5 +103,13 @@ print(
 print(classification_report(test_y, svc.predict(test_x_vector), labels=['positive', 'negative']))
 
 # Confusion Matrix - table that reports the number of false positives, negatives and true positives, negatives
-print(confusion_matrix(test_y,  svc.predict(test_x_vector),  labels=['positive', 'negative']))
+print('Confusion matrix:\n', confusion_matrix(test_y,  svc.predict(test_x_vector),  labels=['positive', 'negative']))
 
+# Tuning the Model - GridSearchCV
+parameters = {'C': [1, 4, 8, 16, 32], 'kernel': ['linear', 'rbf']}
+svc = SVC()
+svc_grid = GridSearchCV(svc, parameters, cv=5)
+svc_grid.fit(train_x_vector, train_y)
+
+# Print the best parameters
+print(svc_grid.best_params_)
